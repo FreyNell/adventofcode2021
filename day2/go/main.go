@@ -71,5 +71,8 @@ func main() {
 		log.Fatal(err)
 	}
 
+	fmt.Println("Part 1:")
+	part1(data)
+	fmt.Println("Part 2:")
 	part2(data)
 }
