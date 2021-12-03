@@ -45,7 +45,7 @@ func part2(data []int) {
 
 func main() {
 	var data []int
-	file, err := os.Open("input_aoc1")
+	file, err := os.Open("../input_aoc1")
 	if err != nil {
 		log.Fatal(err)
 	}
