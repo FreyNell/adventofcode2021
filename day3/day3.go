@@ -6,6 +6,8 @@ package main
 import (
 	"adventofcode2021/frey_utils"
 	"fmt"
+	"log"
+	"time"
 )
 
 func GetIndexes(data []string, compare int, order int) (indexes []int) {
@@ -87,7 +89,12 @@ func Part2(data []string) (life_support_rating int) {
 }
 
 func main() {
+	start := time.Now()
+
 	data := frey_utils.ReadInput("real_input")
 	fmt.Println(Part1(data))
 	fmt.Println(Part2(data))
+
+	elapsed := time.Since(start)
+	log.Printf("Day3 Took %s", elapsed)
 }

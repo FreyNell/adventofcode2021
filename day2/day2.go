@@ -8,6 +8,7 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"time"
 
 	"adventofcode2021/frey_utils"
 )
@@ -59,7 +60,12 @@ func Part2(data []string) (multiplier int) {
 }
 
 func main() {
-	data := frey_utils.ReadInput("/vagrant_data/adventofcode2021/day2/input_aoc2")
+	start := time.Now()
+
+	data := frey_utils.ReadInput("real_input")
 	fmt.Println(Part1(data))
 	fmt.Println(Part2(data))
+
+	elapsed := time.Since(start)
+	log.Printf("Day2 Took %s", elapsed)
 }

@@ -5,7 +5,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"strconv"
+	"time"
 
 	"adventofcode2021/frey_utils"
 )
@@ -38,6 +40,8 @@ func Part2(data []int) (increase int) {
 }
 
 func main() {
+	start := time.Now()
+
 	var data []int
 	input := frey_utils.ReadInput("real_input")
 	for _, elem := range input {
@@ -50,4 +54,7 @@ func main() {
 
 	fmt.Println(Part1(data))
 	fmt.Println(Part2(data))
+
+	elapsed := time.Since(start)
+	log.Printf("Day1 Took %s", elapsed)
 }
