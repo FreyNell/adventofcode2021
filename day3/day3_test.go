@@ -21,3 +21,17 @@ func TestPart2(t *testing.T) {
 		t.Errorf("Part2() = %d, want %d", int(got), int(want))
 	}
 }
+
+func BenchmarkPart1(b *testing.B) {
+	data := frey_utils.ReadInput("example_input")
+	for i := 0; i < b.N; i++ {
+		Part1(data)
+	}
+}
+
+func BenchmarkPart2(b *testing.B) {
+	data := frey_utils.ReadInput("example_input")
+	for i := 0; i < b.N; i++ {
+		Part2(data)
+	}
+}
