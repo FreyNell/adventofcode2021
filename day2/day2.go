@@ -4,15 +4,15 @@ https://adventofcode.com/2021/day/2
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
-	"os"
 	"strconv"
 	"strings"
+
+	"adventofcode2021/frey_utils"
 )
 
-func part1(data []string) {
+func Part1(data []string) (multiplier int) {
 	depth := 0
 	horizontal := 0
 	for _, s := range data {
@@ -30,10 +30,11 @@ func part1(data []string) {
 		}
 	}
 
-	fmt.Println("Depth:", depth, "Horizontal:", horizontal, "Multiplier:", depth*horizontal)
+	multiplier = depth * horizontal
+	return
 }
 
-func part2(data []string) {
+func Part2(data []string) (multiplier int) {
 	depth := 0
 	horizontal := 0
 	aim := 0
@@ -53,29 +54,12 @@ func part2(data []string) {
 		}
 	}
 
-	fmt.Println("Depth:", depth, "Horizontal:", horizontal, "Multiplier:", depth*horizontal)
+	multiplier = depth * horizontal
+	return
 }
 
 func main() {
-	var data []string
-	file, err := os.Open("../input_aoc2")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		str := scanner.Text()
-		data = append(data, str)
-	}
-
-	if err := scanner.Err(); err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println("Part 1:")
-	part1(data)
-	fmt.Println("Part 2:")
-	part2(data)
+	data := frey_utils.ReadInput("/vagrant_data/adventofcode2021/day2/input_aoc2")
+	fmt.Println(Part1(data))
+	fmt.Println(Part2(data))
 }
